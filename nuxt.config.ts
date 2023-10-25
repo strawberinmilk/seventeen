@@ -1,14 +1,12 @@
-import elementPlus from 'element-plus';
+import elementPlus from 'element-plus'; // eslint-disable-line
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: [
-    '@element-plus/nuxt'
-  ],
+  modules: ['@element-plus/nuxt'],
   elementPlus: {
-    locale: 'ja'
+    locale: 'ja',
   },
   typescript: {
-    strict: true
-  }
-})
+    strict: true,
+  },
+});

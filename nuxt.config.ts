@@ -37,4 +37,9 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
+
+  // 404
+  generate: {
+    fallback: true,
+  },
 });

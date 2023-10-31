@@ -55,6 +55,16 @@
         v-if="state.status === 'selected'"
         :id="$style.cracker2"
       />
+      <div :id="$style.credit">
+        <p>
+          created:
+          <a href="https://twitter.com/strawbeRinMilk">rin;</a>
+        </p>
+        <p>designed: <a href="https://twitter.com/Masstate">Masstate</a></p>
+        <p>
+          <a href="strawberrymilk.dev">strawberrymilk.dev</a>
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -139,6 +149,10 @@ export default defineComponent({
 </script>
 
 <style lang="scss" module>
+:root {
+  --contents-width: 300px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -150,9 +164,10 @@ body {
 }
 
 #contents {
-  width: 300px;
-  margin: 0 auto;
   position: relative;
+  height: calc(100vh - 70px);
+  width: var(--contents-width);
+  margin: 0 auto;
 }
 
 #sky {
@@ -174,7 +189,7 @@ body {
 .input {
   background-color: rgb(242, 143, 139);
   font-size: 1.4em;
-  width: 300px;
+  width: var(--contents-width);
   margin: 10px auto;
   padding: 10px;
   color: white;
@@ -196,5 +211,13 @@ body {
   position: absolute;
   right: 20px;
   transform: rotate(-30deg);
+}
+
+#credit {
+  position: absolute;
+  text-align: center;
+  bottom: 0px;
+  width: var(--contents-width);
+  margin: 0 auto;
 }
 </style>

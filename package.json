@@ -38,6 +38,7 @@
   "dependencies": {
     "@nuxtjs/composition-api": "^0.33.1",
     "@vue/composition-api": "^1.7.2",
-    "element-ui": "^2.15.14"
+    "element-ui": "^2.15.14",
+    "sass": "^1.69.5"
   }
 }

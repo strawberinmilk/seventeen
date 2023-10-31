@@ -62,7 +62,7 @@
         </p>
         <p>designed: <a href="https://twitter.com/Masstate">Masstate</a></p>
         <p>
-          <a href="strawberrymilk.dev">strawberrymilk.dev</a>
+          <a href="https://strawberrymilk.dev">strawberrymilk.dev</a>
         </p>
       </div>
     </div>

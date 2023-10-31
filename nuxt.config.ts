@@ -27,7 +27,13 @@ export default defineNuxtConfig({
         },
         // { property: 'og:image', content: 'https://example.com/hoge.png' },
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        {
+          href: 'https://fonts.googleapis.com/css2?family=DotGothic16&display=swap',
+          rel: 'stylesheet',
+        },
+      ],
     },
   },
   modules: ['@element-plus/nuxt'],

@@ -23,10 +23,22 @@
         <el-input v-model="state.name"></el-input>
       </div>
 
+      <el-button :class="$style.el_button" @click="showResult()"
+        >結果を見る</el-button
+      >
+
       <div v-if="state.status === 'selected'">
-        <p>あなたは10進数で数えると{{ state.age }}才です。</p>
+        <p>
+          {{ state.name ? state.name : 'あなた' }}は10進数で数えると{{
+            state.age
+          }}才です。
+        </p>
         <p>でも{{ state.base }}進数で数えると17才です!</p>
-        <el-button :id="$style.tweetButton" color="#1da1f2" @click="tweet()"
+        <el-button
+          :id="$style.tweetButton"
+          :class="$style.el_button"
+          color="#1da1f2"
+          @click="tweet()"
           >ツイート(Xでポスト)する</el-button
         >
       </div>
@@ -62,7 +74,9 @@ export default defineComponent({
       name: '',
       status: 'notselect', // 'notselect' | 'selected' | 'error'
     });
+
     const dateChange = (): void => {
+      if (state.status === 'notselect') return;
       if (!state.date) return;
       const today = new Date();
       const birthday = new Date(state.date);
@@ -78,15 +92,23 @@ export default defineComponent({
       state.age = `${age}`;
       if (age >= 15) {
         state.base = `${age - 7}`;
-        state.status = 'notselect'; // 一瞬消してもう一回クラッカーしたい
-
-        nextTick(() => {
-          state.status = 'selected';
-        });
+        state.status = 'selected';
       } else {
         state.base = '';
         state.status = 'error';
       }
+    };
+
+    const showResult = (): void => {
+      if (!state.date) return;
+      state.status = 'selected';
+      dateChange();
+      nextTick(() => {
+        state.status = 'notselect';
+        nextTick(() => {
+          state.status = 'selected';
+        });
+      });
     };
 
     const tweet = (): void => {
@@ -108,6 +130,7 @@ export default defineComponent({
     return {
       state,
       dateChange,
+      showResult,
       tweet,
       ja,
     };
@@ -119,6 +142,7 @@ export default defineComponent({
 body {
   margin: 0;
   padding: 0;
+  font-family: 'DotGothic16', serif;
 }
 
 #main {
@@ -156,6 +180,9 @@ body {
   color: white;
 }
 
+.el_button {
+  font-family: 'DotGothic16', serif;
+}
 #tweetButton {
   color: #fff;
 }

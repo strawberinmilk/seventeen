@@ -124,7 +124,7 @@ export default defineComponent({
     const tweet = (): void => {
       const text = `${state.name ? state.name : 'わたし'}は${
         state.base
-      }進数で数えると17才です!`;
+      }進数で数えると17才です! ${encodeURIComponent('\n')}Powerd by @strawberinmilk${encodeURIComponent('\n')}`;
       const tag = ['17才', 'n進数', `${state.base}進数`, 'n進数17才メーカー'];
       const url = 'https://seventeen.strawberrymilk.dev';
       window.open(
